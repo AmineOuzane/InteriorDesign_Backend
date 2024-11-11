@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/canapes")
 public class CanapeController {
+
     private static final Logger logger = LoggerFactory.getLogger(CanapeController.class);
 
     @Autowired

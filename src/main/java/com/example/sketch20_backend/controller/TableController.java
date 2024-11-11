@@ -1,11 +1,8 @@
 package com.example.sketch20_backend.controller;
 
-import com.example.sketch20_backend.dto.CanapeDTO;
 import com.example.sketch20_backend.dto.TableDTO;
 import com.example.sketch20_backend.exception.ProductNotFoundException;
-import com.example.sketch20_backend.model.Canape;
-import com.example.sketch20_backend.model.Table;
-import com.example.sketch20_backend.service.CanapeService;
+import com.example.sketch20_backend.model.My_Table;
 import com.example.sketch20_backend.service.TableService;
 import com.example.sketch20_backend.utils.ObjectMapperUtils;
 import org.slf4j.Logger;
@@ -33,11 +30,11 @@ public class TableController {
     public TableDTO getTable(@PathVariable int id) {
         logger.info("Received request to get table with ID: {}", id);
 
-        Optional<Table> table = tableService.getTable(id);
+        Optional<My_Table> table = tableService.getTable(id);
 
         if (table.isPresent()) {
-            Table p = table.get();
-            logger.debug("Table found: {}", p);
+            My_Table p = table.get();
+            logger.debug("My_Table found: {}", p);
 
             String base64Image = Base64.getEncoder().encodeToString(p.getImage());
             TableDTO tableDTO = ObjectMapperUtils.convertToDto(p);
@@ -46,7 +43,7 @@ public class TableController {
             logger.info("Returning tableDTO: {}", tableDTO);
             return tableDTO;
         } else {
-            logger.error("Table with ID {} not found", id);
+            logger.error("My_Table with ID {} not found", id);
             throw new ProductNotFoundException("table not found");
         }
     }
@@ -54,13 +51,13 @@ public class TableController {
     // New method to get all canapes
     @GetMapping
     public List<TableDTO> getAllTables() {
-        logger.info("Received request to get all tables");
+        logger.info("Received request to get all myTables");
 
-        List<Table> tables = tableService.getAllTables();
-        List<TableDTO> tableDTOS = tables.stream()
-                .map(table -> {
-                    String base64Image = Base64.getEncoder().encodeToString(table.getImage());
-                    TableDTO tableDTO = ObjectMapperUtils.convertToDto(table);
+        List<My_Table> myTables = tableService.getAllTables();
+        List<TableDTO> tableDTOS = myTables.stream()
+                .map(myTable -> {
+                    String base64Image = Base64.getEncoder().encodeToString(myTable.getImage());
+                    TableDTO tableDTO = ObjectMapperUtils.convertToDto(myTable);
                     tableDTO.setImage(base64Image);
                     return tableDTO;
                 })

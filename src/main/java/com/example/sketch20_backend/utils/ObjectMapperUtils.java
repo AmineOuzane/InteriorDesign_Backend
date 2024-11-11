@@ -1,13 +1,7 @@
 package com.example.sketch20_backend.utils;
 
-import com.example.sketch20_backend.dto.CanapeDTO;
-import com.example.sketch20_backend.dto.ChambreDTO;
-import com.example.sketch20_backend.dto.ProductDTO;
-import com.example.sketch20_backend.dto.TableDTO;
-import com.example.sketch20_backend.model.Canape;
-import com.example.sketch20_backend.model.Chambre;
-import com.example.sketch20_backend.model.Product;
-import com.example.sketch20_backend.model.Table;
+import com.example.sketch20_backend.dto.*;
+import com.example.sketch20_backend.model.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.TreeNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -76,11 +70,35 @@ public class ObjectMapperUtils {
         return map(chambreDTO, Chambre.class);
     }
 
-    public static TableDTO convertToDto(Table table) {
-        return map(table, TableDTO.class);
+    public static TableDTO convertToDto(My_Table myTable) {
+        return map(myTable, TableDTO.class);
     }
 
-    public static Table convertToEntity(TableDTO tableDTO) {
-        return map(tableDTO, Table.class);
+    public static My_Table convertToEntity(TableDTO tableDTO) {
+        return map(tableDTO, My_Table.class);
+    }
+
+    public static ChaiseDTO convertToDto(Chaise chaise) {
+        return map(chaise, ChaiseDTO.class);
+    }
+
+    public static Chaise convertToEntity(ChaiseDTO chaiseDTO) {
+        return map(chaiseDTO, Chaise.class);
+    }
+
+    public static MeubleDTO convertToDto(Meuble meuble) {
+        return map(meuble, MeubleDTO.class);
+    }
+
+    public static Meuble convertToEntity(MeubleDTO meubleDTO) {
+        return map(meubleDTO, Meuble.class);
+    }
+
+    public static HabillageDTO convertToDto(Habillage habillage) {
+        return map(habillage, HabillageDTO.class);
+    }
+
+    public static Habillage convertToEntity(HabillageDTO habillageDTO) {
+        return map(habillageDTO, Habillage.class);
     }
 }

@@ -1,15 +1,16 @@
 package com.example.sketch20_backend.service;
 
-import com.example.sketch20_backend.model.Chambre;
-import com.example.sketch20_backend.model.Table;
-import com.example.sketch20_backend.repository.ChambreRepository;
+import com.example.sketch20_backend.model.My_Table;
+import com.example.sketch20_backend.model.Product;
 import com.example.sketch20_backend.repository.TableRepository;
+import jakarta.persistence.Table;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -19,9 +20,9 @@ public class TableService {
     @Autowired
     TableRepository tableRepository;
 
-    public Optional<Table> getTable(int id) {
+    public Optional<My_Table> getTable(int id) {
         logger.info("Fetching table with ID: {}", id);
-        Optional<Table> table = tableRepository.findById(id);
+        Optional<My_Table> table = tableRepository.findById(id);
         if (table.isPresent()) {
             logger.debug("table found: {}", table.get());
         } else {
@@ -30,14 +31,10 @@ public class TableService {
         return table;
     }
 
-    public List<Table> getAllTables() {
-        logger.info("Fetching all tables");
-        List<Table> tables = tableRepository.findAll()
-                .stream()
-                .filter(table -> table != null)
-                .collect(Collectors.toList());
-        logger.info("Number of chambres found: {}", tables.size());
+    public List<My_Table> getAllTables() {
+        logger.info("Fetching all products");
+        List<My_Table> tables = tableRepository.findAll();
+        logger.info("Number of products found: {}", tables.size());
         return tables;
     }
-
 }
