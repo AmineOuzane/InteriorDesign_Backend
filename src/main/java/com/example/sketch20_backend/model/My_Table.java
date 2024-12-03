@@ -3,6 +3,7 @@ package com.example.sketch20_backend.model;
 import jakarta.persistence.*;
 
 import lombok.Data;
+import lombok.Getter;
 
 @Entity
 @Data
@@ -16,4 +17,12 @@ public class My_Table {
 
     @Lob
     private byte[] image;
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }

@@ -1,11 +1,8 @@
 package com.example.sketch20_backend.controller;
 
-import com.example.sketch20_backend.dto.CanapeDTO;
 import com.example.sketch20_backend.dto.ChaiseDTO;
 import com.example.sketch20_backend.exception.ProductNotFoundException;
-import com.example.sketch20_backend.model.Canape;
 import com.example.sketch20_backend.model.Chaise;
-import com.example.sketch20_backend.service.CanapeService;
 import com.example.sketch20_backend.service.ChaiseService;
 import com.example.sketch20_backend.utils.ObjectMapperUtils;
 import org.slf4j.Logger;

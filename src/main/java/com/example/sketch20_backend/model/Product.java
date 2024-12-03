@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.Getter;
 
 @Entity
 @Data
@@ -22,4 +23,12 @@ public class Product {
 
     @Lob
     private byte[] image;
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }
