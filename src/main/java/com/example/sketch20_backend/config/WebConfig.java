@@ -13,14 +13,8 @@ public class WebConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-//                registry.addMapping("/**")
-//                        .allowedOrigins("*")
-//                        .allowedMethods("*")
-//                        .allowedHeaders("*")
-//                        .allowedOrigins("https://tissirelalia.com");
-//            }
                 registry.addMapping("/**")
-                        .allowedOrigins("https://tissirelalia.com") // Replace with your frontend domain
+                        .allowedOrigins("*") // Replace with your frontend domain or allow everyone
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
