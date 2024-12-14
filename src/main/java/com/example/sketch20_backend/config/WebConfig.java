@@ -17,7 +17,7 @@ public class WebConfig {
 //                        .allowedOrigins("https://tissirelalia.com");
 //            }
                 registry.addMapping("/**")
-                        .allowedOrigins("https://tissirelalia.com") // Replace with your frontend domain
+                        .allowedOrigins("*") // Replace with your frontend domain
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
