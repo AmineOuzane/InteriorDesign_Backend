@@ -20,7 +20,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable()) // Disable CSRF
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/**").permitAll() // Updated: Allow all requests
+                        .requestMatchers("/**").permitAll() // Allow all requests
                         .anyRequest().authenticated()); // Customize for secured endpoints
 
         return http.build();
@@ -29,7 +29,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("https://tissirelalia.com")); // Replace with your frontend URL
+        configuration.setAllowedOrigins(Arrays.asList("https://tissirelalia.com")); // Your frontend URL
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
@@ -39,3 +39,4 @@ public class SecurityConfig {
         return source;
     }
 }
+
